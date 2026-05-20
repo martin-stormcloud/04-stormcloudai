@@ -31,6 +31,12 @@ jobs:
             --exclude ".github/*" \
             --exclude ".claude/*" \
             --exclude "*.md" \
+            --exclude "Dockerfile" \
+            --exclude ".dockerignore" \
+            --exclude ".gitignore" \
+            --exclude "nginx.conf" \
+            --exclude "*.sh" \
+            --exclude "test" \
             --delete
 
       - name: Invalidate test CloudFront
@@ -59,6 +65,12 @@ jobs:
             --exclude ".github/*" \
             --exclude ".claude/*" \
             --exclude "*.md" \
+            --exclude "Dockerfile" \
+            --exclude ".dockerignore" \
+            --exclude ".gitignore" \
+            --exclude "nginx.conf" \
+            --exclude "*.sh" \
+            --exclude "test" \
             --delete
 
       - name: Invalidate prod CloudFront
