@@ -8,7 +8,11 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <!-- Display: Clash Display · Body: General Sans (Fontshare) · Data/UI: JetBrains Mono (Google) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
 
@@ -25,9 +29,9 @@
       text-align: center;
       border-top: 2px solid transparent;
     }
-    .ps-step--1 { border-top-color: rgba(34,212,160,0.5); }
-    .ps-step--2 { border-top-color: rgba(139,92,246,0.5); }
-    .ps-step--3 { border-top-color: rgba(236,72,153,0.5); }
+    .ps-step--1 { border-top-color: rgba(34,197,94,0.5); }
+    .ps-step--2 { border-top-color: rgba(77,158,255,0.5); }
+    .ps-step--3 { border-top-color: rgba(245,166,35,0.5); }
     .ps-lbl {
       font-size: 0.62rem; font-weight: 900; text-transform: uppercase;
       letter-spacing: 0.14em; display: block; margin-bottom: 20px;
@@ -60,10 +64,10 @@
       position: relative;
     }
     .prod-card:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.45); }
-    .prod-card.prod-featured { border-color: rgba(139,92,246,0.5); }
+    .prod-card.prod-featured { border-color: rgba(77,158,255,0.5); }
     .prod-featured-badge {
       position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(90deg, #8B5CF6, #06B6D4);
+      background: linear-gradient(90deg, #4D9EFF, #2D6ECC);
       color: #fff; font-size: 0.58rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.12em;
       padding: 4px 16px; border-radius: 0 0 10px 10px;
@@ -89,14 +93,14 @@
       background: rgba(255,255,255,0.05); border: 1px solid var(--navy-border); color: var(--grey-light);
       white-space: nowrap;
     }
-    .prod-featured .prod-chip { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.25); color: var(--blue-bright); }
+    .prod-featured .prod-chip { background: rgba(77,158,255,0.08); border-color: rgba(77,158,255,0.25); color: var(--blue-bright); }
     .prod-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
     .prod-cta-primary {
       display: block; text-align: center; padding: 13px;
       border-radius: 11px; font-size: 0.88rem; font-weight: 700;
       background: var(--gradient-btn); color: #fff;
       text-decoration: none; transition: opacity 0.2s, transform 0.2s;
-      box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+      box-shadow: 0 4px 20px rgba(77,158,255,0.3);
     }
     .prod-cta-primary:hover { opacity: 0.9; transform: translateY(-1px); }
     .prod-cta-ghost {
@@ -143,8 +147,9 @@
       border-radius: 16px; padding: 24px 20px; text-align: center;
     }
     .proof-num {
-      font-size: 2.2rem; font-weight: 900; line-height: 1; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+      font-family: var(--font-mono);
+      font-size: 2.1rem; font-weight: 700; line-height: 1; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #4D9EFF, #2D6ECC);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .proof-label { font-size: 0.7rem; font-weight: 600; color: var(--grey); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 6px; }
@@ -666,9 +671,14 @@
 <!-- ── Navigation ── -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">⚡</div>
-      Storm<span>Cloud</span> AI
+    <a href="index.html" class="logo" aria-label="StormCloud AI — home">
+      <span class="logo-icon">
+        <svg class="logo-bolt" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18,3 10,17 15,17 14,29 22,15 17,15"/></svg>
+      </span>
+      <span class="logo-word">
+        <span class="logo-name">Storm<span class="logo-cloud">Cloud</span></span>
+        <span class="logo-tag">AI Platform</span>
+      </span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -686,7 +696,7 @@
 <span class="close-nav" aria-label="Close menu">✕</span>
 
 <!-- ── Hero ── -->
-<section class="hero" style="padding-top:0; min-height:100vh; display:flex; align-items:center;">
+<section class="hero" style="padding-top:120px; min-height:100vh; display:flex; align-items:center;">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-orbs">
@@ -699,7 +709,12 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="dot"></span>
-          AI-Powered SEO Platform for UK Small Businesses
+          AI-POWERED SEO PLATFORM · BUILT FOR UK SMEs
+        </div>
+        <div class="hero-cli" aria-hidden="true">
+          <span class="cli-line"><span class="cli-prompt">$</span>stormcloud scan <span class="cli-dim">yourclient.co.uk</span></span>
+          <span class="cli-line"><span class="cli-dim">&gt;</span> running 50+ checks <span class="cli-ok">[ OK ]</span></span>
+          <span class="cli-line"><span class="cli-dim">&gt;</span> score 74/100 · generating AI plan<span class="cli-cursor"></span></span>
         </div>
         <h1>Find out why<br />you're not ranking.<br /><em>Then fix it.</em></h1>
         <p class="hero-sub">Every day your site isn't ranking, a competitor is getting your customers. StormCloud AI tells you exactly why — and gives you a step-by-step plan to fix it. Free, in 3 minutes.</p>
@@ -1081,9 +1096,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">⚡</div>
-          Storm<span>Cloud</span> AI
+        <a href="index.html" class="logo" aria-label="StormCloud AI — home">
+          <span class="logo-icon">
+            <svg class="logo-bolt" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18,3 10,17 15,17 14,29 22,15 17,15"/></svg>
+          </span>
+          <span class="logo-word">
+            <span class="logo-name">Storm<span class="logo-cloud">Cloud</span></span>
+            <span class="logo-tag">AI Platform</span>
+          </span>
         </a>
         <p>AI-powered SEO platform for UK small businesses. Find out why you're not ranking — and get a personalised plan to fix it.</p>
       </div>

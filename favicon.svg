@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#1A2744"/>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A2744"/>
+      <stop offset="1" stop-color="#253655"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7" fill="url(#tile)" stroke="#2E4770"/>
   <polygon points="18,3 10,17 15,17 14,29 22,15 17,15" fill="#4D9EFF"/>
 </svg>
