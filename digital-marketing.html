@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Managed paid digital marketing for UK small businesses. Google Ads + Meta Ads campaigns built, run and optimised by the StormCloud team. From £499/mo." />
+  <title>Digital Marketing — StormCloud AI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ── Channels split — Google Ads / Meta Ads side by side ── */
+    .channels-split {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .channel-card {
+      position: relative;
+      background: linear-gradient(180deg, var(--navy-card) 0%, var(--navy-mid) 100%);
+      border: 1px solid var(--navy-border);
+      border-radius: 20px;
+      padding: 40px 36px 36px;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .channel-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+      opacity: 0.85;
+    }
+    .channel-card:hover {
+      border-color: rgba(77, 158, 255, 0.45);
+      transform: translateY(-2px);
+    }
+    .channel-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .channel-head .icon-wrap {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      box-shadow: 0 0 24px var(--blue-glow);
+    }
+    .channel-head .icon-wrap svg {
+      width: 30px; height: 30px;
+    }
+    .channel-titles h3 {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1.1;
+      margin: 0 0 4px;
+    }
+    .channel-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--blue-bright);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .channel-blurb {
+      color: var(--grey-light);
+      line-height: 1.7;
+      font-size: 0.98rem;
+      margin: 0 0 24px;
+    }
+    .channel-feature-list {
+      list-style: none;
+      margin: 0;
+      padding: 20px 0 0;
+      border-top: 1px solid var(--navy-border);
+    }
+    .channel-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 0.94rem;
+      color: var(--grey-light);
+      line-height: 1.5;
+    }
+    .channel-feature-list li .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(77, 158, 255, 0.14);
+      border: 1px solid rgba(77, 158, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-bright);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 1px;
+    }
+
+    /* ── How it works — numbered steps ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .step-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 14px;
+      padding: 28px 24px 26px;
+      transition: border-color var(--transition);
+    }
+    .step-card:hover { border-color: rgba(77, 158, 255, 0.35); }
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--blue-bright);
+      margin-bottom: 10px;
+    }
+    .step-card h4 {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin: 0 0 8px;
+    }
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Sign-up form ── */
+    .signup-card {
+      background: linear-gradient(180deg, var(--navy-card) 0%, var(--navy-mid) 100%);
+      border: 1px solid var(--navy-border);
+      border-radius: 20px;
+      padding: 48px 44px;
+      max-width: 760px;
+      margin: 56px auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .signup-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .signup-card h3 {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+    }
+    .signup-intro {
+      color: var(--grey-light);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+    .signup-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .signup-form .form-group { margin-bottom: 18px; }
+    .signup-form label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .signup-form input,
+    .signup-form select,
+    .signup-form textarea {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid var(--navy-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .signup-form input::placeholder,
+    .signup-form textarea::placeholder { color: var(--grey); }
+    .signup-form input:focus,
+    .signup-form select:focus,
+    .signup-form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-glow);
+    }
+    .signup-form textarea { min-height: 110px; resize: vertical; }
+    .signup-form .form-submit { margin-top: 12px; width: 100%; }
+
+    /* ── FAQ ── */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .faq-item {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color var(--transition);
+    }
+    .faq-item:hover { border-color: rgba(77, 158, 255, 0.3); }
+    .faq-item h4 {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-item h4::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 8px var(--blue-glow);
+      flex-shrink: 0;
+    }
+    .faq-item p {
+      font-size: 0.92rem;
+      color: var(--grey-light);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Pricing footnote ── */
+    .pricing-footnote {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.85rem;
+      color: var(--grey);
+    }
+
+    @media (max-width: 900px) {
+      .channels-split { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .signup-form .form-row { grid-template-columns: 1fr; }
+      .signup-card { padding: 36px 24px; }
+      .channel-card { padding: 32px 24px 28px; }
+    }
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="StormCloud AI — home"><span class="logo-icon"><svg class="logo-bolt" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18,3 10,17 15,17 14,29 22,15 17,15"/></svg></span><span class="logo-word"><span class="logo-name">Storm<span class="logo-cloud">Cloud</span></span><span class="logo-tag">AI Platform</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Features</a></li>
+      <li><a href="digital-marketing.html" class="active">Digital Marketing</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
+      <li><a href="http://localhost:3000/register" class="btn btn-primary nav-cta">Free SEO Scan</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<span class="close-nav" aria-label="Close menu">✕</span>
+
+<!-- ── Hero ── -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">Digital Marketing</span>
+    <h1>Paid ads that <span class="highlight">bring real customers.</span></h1>
+    <p>Google Ads and Meta Ads campaigns built, run and optimised by our team. You stay focused on running your business — we bring the leads in.</p>
+  </div>
+</div>
+
+<!-- ── Channels ── -->
+<section style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Channels</span>
+      <h2>Two platforms. <span class="highlight">Where your customers actually are.</span></h2>
+      <p>We focus on the two channels that drive measurable, intent-driven traffic for UK small businesses — and skip the noise everywhere else.</p>
+    </div>
+
+    <div class="channels-split">
+
+      <div class="channel-card">
+        <div class="channel-head">
+          <div class="icon-wrap icon-wrap--blue"><i data-lucide="search"></i></div>
+          <div class="channel-titles">
+            <h3>Google Ads</h3>
+            <div class="channel-sub">// HIGH-INTENT SEARCH</div>
+          </div>
+        </div>
+        <p class="channel-blurb">Catch customers at the exact moment they're searching for what you offer. "Emergency plumber Manchester", "wedding photographer Bristol" &mdash; these are people ready to buy today.</p>
+        <ul class="channel-feature-list">
+          <li><span class="check">&check;</span>Search campaigns built around your service + city combinations</li>
+          <li><span class="check">&check;</span>Conversion tracking wired to your forms and phone calls</li>
+          <li><span class="check">&check;</span>Bid management tuned weekly &mdash; not "set it and forget it"</li>
+          <li><span class="check">&check;</span>Landing-page recommendations from your scan data</li>
+          <li><span class="check">&check;</span>Google Business Profile integration for local ads</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-head">
+          <div class="icon-wrap icon-wrap--pink"><i data-lucide="users"></i></div>
+          <div class="channel-titles">
+            <h3>Meta Ads</h3>
+            <div class="channel-sub">// FACEBOOK + INSTAGRAM</div>
+          </div>
+        </div>
+        <p class="channel-blurb">Reach customers before they've started searching. Meta's targeting + creative formats are where you build the brand, drive consideration, and retarget visitors who weren't ready the first time.</p>
+        <ul class="channel-feature-list">
+          <li><span class="check">&check;</span>Audience research based on your existing customer profile</li>
+          <li><span class="check">&check;</span>Creative testing across multiple ad formats</li>
+          <li><span class="check">&check;</span>Retargeting for visitors who landed but didn't convert</li>
+          <li><span class="check">&check;</span>Lead-form ads that work without sending people off-site</li>
+          <li><span class="check">&check;</span>Instagram Reels for businesses that thrive on visual content</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Who it's for ── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Who it's for</span>
+      <h2>Built for businesses that <span class="highlight">need leads, fast.</span></h2>
+      <p>SEO compounds over months. Paid ads can put your phone number in front of a buyer this afternoon — alongside the SEO work doing the long-game.</p>
+    </div>
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="zap"></i></div>
+        <h4>Need leads now</h4>
+        <p>"My SEO will take 6 months to kick in. I need bookings this week to cover next month's costs."</p>
+        <div class="persona-result">↗ Live campaigns within 7 working days</div>
+      </div>
+      <div class="persona-card">
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="trending-up"></i></div>
+        <h4>Already tried it yourself</h4>
+        <p>"I ran ads myself, spent £2k, got tyre kickers. I need someone who actually knows what they're doing."</p>
+        <div class="persona-result">↗ Lead quality reporting, not just click counts</div>
+      </div>
+      <div class="persona-card">
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="layout-dashboard"></i></div>
+        <h4>Want everything in one place</h4>
+        <p>"I want my SEO and my paid ads working together, in one dashboard, billed by one team."</p>
+        <div class="persona-result">↗ Stacks on top of any StormCloud plan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How it works ── -->
+<section style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">How it works</span>
+      <h2>Four steps. <span class="highlight">Live in a week.</span></h2>
+      <p>From signed-off to live campaigns in 7 working days. No "discovery phase" that drags for a month.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">// 01</div>
+        <h4>Discovery call</h4>
+        <p>30 minutes. Your goals, current spend, target market, what's worked and what hasn't.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">// 02</div>
+        <h4>Setup</h4>
+        <p>Ad accounts, conversion tracking, audience research, keyword/creative briefs. Pixels installed properly.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">// 03</div>
+        <h4>Launch</h4>
+        <p>Campaigns go live. You see every campaign, every keyword, every ad spend in your dashboard.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">// 04</div>
+        <h4>Optimise</h4>
+        <p>Weekly tuning, monthly strategy review, quarterly creative refresh. You're never on cruise control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Pricing</span>
+      <h2>Pay for management, <span class="highlight">not surprises.</span></h2>
+      <p>Flat monthly management fee. Your ad spend goes directly to Google and Meta — we never mark it up. Cancel any time.</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- Launch -->
+      <div class="plan-card">
+        <div>
+          <div class="plan-name">Launch</div>
+          <div class="plan-price" style="margin-top:10px;">£499 <span>/ month</span></div>
+          <div class="plan-note">Google Ads only · One-time setup £499</div>
+        </div>
+        <p class="plan-desc">Best for businesses testing paid ads for the first time. Single Google Ads search campaign focused on the keywords that drive the highest-intent traffic for your service area.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">Google Ads only</span>
+          <span class="plan-chip">1 campaign</span>
+          <span class="plan-chip">Monthly reporting</span>
+          <span class="plan-chip">Conversion tracking</span>
+        </div>
+        <a href="#signup" class="plan-cta plan-cta-ghost">Get in touch &rarr;</a>
+      </div>
+
+      <!-- Growth — featured -->
+      <div class="plan-card plan-featured">
+        <div class="plan-badge">Most Popular</div>
+        <div>
+          <div class="plan-name">Growth</div>
+          <div class="plan-price" style="margin-top:10px;">£999 <span>/ month</span></div>
+          <div class="plan-note">Setup fee waived · Cancel any time</div>
+        </div>
+        <p class="plan-desc">For businesses that want both channels working together. Full account setup on Google + Meta, weekly optimisation, landing-page recommendations from your SEO scan data.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">Google Ads + Meta</span>
+          <span class="plan-chip">Multi-campaign</span>
+          <span class="plan-chip">Weekly optimisation</span>
+          <span class="plan-chip">Landing-page advice</span>
+          <span class="plan-chip">Bi-weekly calls</span>
+        </div>
+        <a href="#signup" class="plan-cta plan-cta-solid">Talk to us &rarr;</a>
+      </div>
+
+      <!-- Scale -->
+      <div class="plan-card">
+        <div>
+          <div class="plan-name">Scale</div>
+          <div class="plan-price" style="margin-top:10px;">£1,899 <span>/ month</span></div>
+          <div class="plan-note">For established businesses · Dedicated strategist</div>
+        </div>
+        <p class="plan-desc">For businesses with a proven offer ready to scale. Everything in Growth, plus retargeting, creative A/B testing, custom dashboards and a dedicated strategist on a weekly call.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">Everything in Growth</span>
+          <span class="plan-chip">Retargeting</span>
+          <span class="plan-chip">Creative testing</span>
+          <span class="plan-chip">Custom dashboards</span>
+          <span class="plan-chip">Dedicated strategist</span>
+        </div>
+        <a href="#signup" class="plan-cta plan-cta-ghost">Talk to us &rarr;</a>
+      </div>
+
+    </div>
+
+    <p class="pricing-footnote">
+      Ad spend is separate and goes directly to Google / Meta. Minimum recommended ad budget: &pound;750/mo (Launch), &pound;1,500/mo (Growth), &pound;3,000/mo (Scale).
+    </p>
+  </div>
+</section>
+
+<!-- ── Sign-up ── -->
+<section id="signup" style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Sign up</span>
+      <h2>Tell us about your business. <span class="highlight">We'll do the rest.</span></h2>
+      <p>Drop your details and we'll come back within one working day to book your 30-minute discovery call.</p>
+    </div>
+
+    <div class="signup-card">
+      <h3>Get in touch about Digital Marketing</h3>
+      <p class="signup-intro">Everything's optional except your name, email and primary goal.</p>
+
+      <form class="signup-form" novalidate>
+        <input type="hidden" name="service" value="digital-marketing" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name *</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name *</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Smith" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.co.uk" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+44 7700 900000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Business name</label>
+            <input type="text" id="company" name="company" placeholder="Your Business Ltd" />
+          </div>
+          <div class="form-group">
+            <label for="website">Website URL</label>
+            <input type="url" id="website" name="website" placeholder="https://yourbusiness.co.uk" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="current-spend">Current monthly ad spend</label>
+            <select id="current-spend" name="current-spend">
+              <option value="" disabled selected>Select a range…</option>
+              <option>None - never run ads before</option>
+              <option>Under £500/mo</option>
+              <option>£500 - £2,000/mo</option>
+              <option>£2,000 - £5,000/mo</option>
+              <option>£5,000 - £10,000/mo</option>
+              <option>£10,000+/mo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="plan-interest">Plan you're interested in</label>
+            <select id="plan-interest" name="plan-interest">
+              <option value="" disabled selected>Not sure yet…</option>
+              <option>Launch - £499/mo - Google Ads only</option>
+              <option>Growth - £999/mo - Google + Meta</option>
+              <option>Scale - £1,899/mo - Dedicated strategist</option>
+              <option>Not sure - help me decide</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="primary-goal">Primary goal *</label>
+          <select id="primary-goal" name="primary-goal" required>
+            <option value="" disabled selected>Pick the closest…</option>
+            <option>More phone calls / enquiries</option>
+            <option>More online bookings / form fills</option>
+            <option>More e-commerce sales</option>
+            <option>Local foot traffic / store visits</option>
+            <option>Brand awareness in a specific area</option>
+            <option>Something else (tell us below)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="target-market">Target market / service area</label>
+          <input type="text" id="target-market" name="target-market" placeholder="e.g. Greater Manchester, UK-wide, or a specific customer profile" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" placeholder="What's worked, what hasn't, current challenges, timing pressure - whatever helps us prepare for the call."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Send &amp; book my discovery call &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2>The questions <span class="highlight">everyone asks first.</span></h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How is ad spend charged?</h4>
+        <p>Ad spend goes directly from your card to Google / Meta — we never touch it and never mark it up. Our monthly fee is for the strategy, account management and reporting. You see exactly what's being spent and where.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's the minimum ad budget?</h4>
+        <p>We recommend £750/mo minimum on Launch, £1,500/mo on Growth and £3,000/mo on Scale. Below those amounts campaigns don't have enough data to learn from and you're paying us more than you're paying Google.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How fast can campaigns go live?</h4>
+        <p>Seven working days from sign-off, in most cases. The setup phase (week one) covers account access, conversion tracking, audience research and creative briefs. Campaigns go live in week two.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do I have to use your SEO platform?</h4>
+        <p>No. Digital Marketing stands on its own and can be the only thing you take from us. That said, customers on a Starter / Agency / Agency Pro plan get tighter integration — landing-page recommendations from their scan data and a single dashboard for everything.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if I want to cancel?</h4>
+        <p>Cancel any time with 30 days' notice (we wind campaigns down responsibly, return account ownership cleanly and never hold your ad accounts hostage). Most agencies lock you in for 6–12 months. We don't.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Who actually runs the ads?</h4>
+        <p>Our team — UK-based, paid-media specialists who've spent years running Google + Meta accounts. Not outsourced, not automated. You'll meet the person running your account on your discovery call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" style="padding-top: 80px;">
+  <div class="container">
+    <div class="section-header">
+      <h2>Ready to bring in real leads? <span class="highlight">Let's talk.</span></h2>
+      <p>Drop your details above, or email us directly — we read every message and reply within one working day.</p>
+    </div>
+    <div style="text-align:center; margin-top: 32px;">
+      <a href="#signup" class="btn btn-primary">Sign up &rarr;</a>
+      <a href="mailto:hello@stormcloudai.com?subject=Digital Marketing enquiry" class="btn btn-outline" style="margin-left: 12px;">Email us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="StormCloud AI — home">
+          <span class="logo-icon">
+            <svg class="logo-bolt" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18,3 10,17 15,17 14,29 22,15 17,15"/></svg>
+          </span>
+          <span class="logo-word">
+            <span class="logo-name">Storm<span class="logo-cloud">Cloud</span></span>
+            <span class="logo-tag">AI Platform</span>
+          </span>
+        </a>
+        <p>AI-powered SEO platform for UK small businesses. Find out why you're not ranking — and get a personalised plan to fix it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="http://localhost:3000/register">Free SEO Scan</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="http://localhost:3000/login">Sign In</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html">Features</a>
+        <a href="digital-marketing.html">Digital Marketing</a>
+        <a href="pricing.html">SEO Plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:hello@stormcloudai.com">hello@stormcloudai.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 StormCloud AI Ltd. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
+</body>
+</html>

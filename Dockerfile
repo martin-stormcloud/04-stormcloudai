@@ -17,6 +17,7 @@ COPY about.html    /usr/share/nginx/html/
 COPY services.html /usr/share/nginx/html/
 COPY contact.html  /usr/share/nginx/html/
 COPY pricing.html  /usr/share/nginx/html/
+COPY digital-marketing.html /usr/share/nginx/html/
 COPY favicon.svg   /usr/share/nginx/html/
 COPY css/          /usr/share/nginx/html/css/
 COPY js/           /usr/share/nginx/html/js/
