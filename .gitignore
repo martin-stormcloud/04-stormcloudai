@@ -1,1 +1,53 @@
-.claude/settings.local.json
+# Static HTML/CSS/JS site — limited risk surface, but still worth a baseline
+# in case anyone adds tooling (Tailwind CLI, image optimisers, etc.) or just
+# drops a .DS_Store or a half-finished .swp.
+
+# ── Build / dependencies (if anyone adds tooling later) ──────────────────────
+node_modules/
+**/node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# ── Env / secrets ────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+service-account*.json
+*-credentials.json
+
+# ── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# ── OS files ─────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── AI / agent tooling state ─────────────────────────────────────────────────
+.claude/
+.agents/
+skills/
+.anthropic/
+.openai/
+
+# ── Logs + runtime ───────────────────────────────────────────────────────────
+*.log
+.pids
+*.pid
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+*.bak
+*.orig
+*.tgz
