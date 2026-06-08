@@ -349,46 +349,6 @@ section { padding: 100px 0; }
 }
 .hero-proof .stars { color: #FFC107; letter-spacing: 1px; }
 
-/* ── Ticker / Marquee ── */
-.ticker {
-  padding: 20px 0;
-  border-top: 1px solid var(--navy-border);
-  border-bottom: 1px solid var(--navy-border);
-  overflow: hidden;
-  background: var(--navy-mid);
-}
-.ticker-track {
-  display: flex;
-  gap: 0;
-  animation: ticker 28s linear infinite;
-  width: max-content;
-}
-.ticker-track:hover { animation-play-state: paused; }
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.ticker-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 36px;
-  white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: var(--grey-light);
-}
-.ticker-item .t-icon { font-size: 0.95rem; }
-.ticker-item strong { color: var(--white); font-weight: 700; }
-.ticker-sep {
-  color: var(--blue);
-  opacity: 0.4;
-  font-size: 1rem;
-  align-self: center;
-}
-
 /* ── Results Strip ── */
 .results-strip {
   padding: 80px 0;
